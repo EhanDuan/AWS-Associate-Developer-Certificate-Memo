@@ -10,7 +10,7 @@
 + Create an IAM role in Account B with access to DynamoDB. Modify the trust policy of the execution role in Account A to allow the execution role of Lambda to assume the IAM role in Account B. Update the Lambda function code to add the AssumeRole API call
 
 
-<details open>
+<details close>
 <summary>Answer</summary>
 c
 </details>
@@ -31,7 +31,7 @@ Source: https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-a
 + Put the two containers into two separate task definitions using a Fargate Launch Type
 + Put the two containers into a single task definition using an EC2 Launch Type
 
-<details open>
+<details close>
 <summary>Answer</summary>
 a
 </details>
@@ -48,7 +48,7 @@ Source: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_
 + Create a cross-stack reference and use the Export output field to flag the value of VPC from the network stack. Then use Fn::ImportValue intrinsic function to import the value of VPC into the web application stack
 + Create a cross-stack reference and use the Export output field to flag the value of VPC from the network stack. Then use Ref intrinsic function to reference the value of VPC into the web application stack
 
-<details open>
+<details close>
 <summary>Answer</summary>
 c
 </details>
@@ -64,7 +64,7 @@ Source: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/walkthrou
 + Use Cognito Authentication via Cognito User Pools for your CloudFront distribution
 + Use Cognito Authentication via Cognito Identity Pools for your CloudFront distribution
 
-<details open>
+<details close>
 <summary>Answer</summary>
 a
 </details>
@@ -85,7 +85,7 @@ Source:
 + Use WaitTimeSeconds action to short poll and extend a message's visibility timeout
 + Use WaitTimeSeconds action to long poll and extend a message's visibility timeout
 
-<details open>
+<details close>
 <summary>Answer</summary>
 a
 </details>
@@ -105,7 +105,7 @@ Source:
 + Use an API Gateway instead of an Application Load Balancer (ALB) for Lambda function A
 + Use a Cloudfront Distribution instead of an Application Load Balancer (ALB) for Lambda function A
 
-<details open>
+<details close>
 <summary>Answer</summary>
 b
 </details>
@@ -127,7 +127,7 @@ Source:
 + Create an HTTPS listener on the Application Load Balancer with SSL pass-through
 + Create an HTTP listener on the Application Load Balancer with SSL pass-through
 
-<details open>
+<details close>
 <summary>Answer</summary>
 b,c
 </details>
@@ -150,7 +150,7 @@ Which of the following S3 encryption options allows the company to leverage Amaz
 + Server-Side Encryption with Customer-Provided Keys (SSE-C)
 + Client-Side Encryption with data encryption is done on the client-side before sending it to Amazon S3
 
-<details open>
+<details close>
 <summary>Answer</summary>
 c
 </details>
@@ -174,7 +174,7 @@ Source: https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.htm
 + AWS Kinesis Data Analytics
 + Amazon SQS
 
-<details open>
+<details close>
 <summary>Answer</summary>
 a
 </details>
@@ -203,7 +203,7 @@ Source:
 + movie_id
 + movie_language
 
-<details open>
+<details close>
 <summary>Answer</summary>
 c
 </details>
@@ -220,7 +220,7 @@ c
 + `ECS_ENABLE_TASK_IAM_ROLE`
 + `ECS_CLUSTER`
 
-<details open>
+<details close>
 <summary>Answer</summary>
 c
 </details>
@@ -239,7 +239,7 @@ c
 + `!GetAtt`
 + `!FindInMap`
 
-<details open>
+<details close>
 <summary>Answer</summary>
 c
 </details>
@@ -259,7 +259,7 @@ c
 + Lambda Aliases
 + Mapping Templates
 
-<details open>
+<details close>
 <summary>Answer</summary>
 b,d
 </details>
@@ -280,7 +280,7 @@ b,d
 + Change your Lambda function runtime to use Golang
 + Increase the Lambda function timeout
 
-<details open>
+<details close>
 <summary>Answer</summary>
 b
 </details>
@@ -303,7 +303,7 @@ Source: https://docs.aws.amazon.com/lambda/latest/dg/configuration-console.html
 + X-Forwarded-IP
 + X-Forwarded-For
 
-<details open>
+<details close>
 <summary>Answer</summary>
 d
 </details>
@@ -322,7 +322,7 @@ d
 + You cannot use Amazon EC2 Auto Scaling for health checks (to replace unhealthy instances) if you are not using Elastic Load Balancing (ELB)
 
 
-<details open>
+<details close>
 <summary>Answer</summary>
 b,d
 </details>
@@ -341,7 +341,7 @@ b,d
 + CloudWatch + CloudFront
 + API Gateway + Lambda
 
-<details open>
+<details close>
 <summary>Answer</summary>
 a,e
 </details>
@@ -359,7 +359,7 @@ a,e
 + Use the `--query` parameter
 + Use a `scan`
 
-<details open>
+<details close>
 <summary>Answer</summary>
 b
 </details>
@@ -378,7 +378,7 @@ b
 + 10MB
 + 4KB
 
-<details open>
+<details close>
 <summary>Answer</summary>
 d
 </details>
@@ -398,7 +398,7 @@ Note: You can encrypt up to 4 kilobytes (4096 bytes) of arbitrary data such as a
 + Change the queue message retention setting
 + Use a FIFO SQS queue
 
-<details open>
+<details close>
 <summary>Answer</summary>
 c
 </details>
@@ -418,7 +418,7 @@ Note: Default SQS retention : 4 days. Available Range: 60s - 14 days.
 + Use CloudWatch service
 + Use X-Ray service
 
-<details open>
+<details close>
 <summary>Answer</summary>
 d
 </details>
@@ -440,7 +440,7 @@ Note: Microservices debug => X-Ray
 + Encryption by default is an AZ specific setting. If you enable it for an AZ, you cannot disable it for individual volumes or snapshots in that AZ
 
 
-<details open>
+<details close>
 <summary>Answer</summary>
 a, d
 </details>
