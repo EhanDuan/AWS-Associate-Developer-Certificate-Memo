@@ -1,4 +1,4 @@
-# Deployment-memo
+# Deployment Practice Set
 
 **A retail company manages its IT infrastructure on AWS Cloud via Elastic Beanstalk. The development team at the company is planning to deploy the next version with MINIMUM application downtime and the ability to rollback quickly in case deployment goes wrong.**
 
