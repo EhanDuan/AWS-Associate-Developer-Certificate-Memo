@@ -685,10 +685,599 @@ Which of the following is the most suitable solution to meet the requirement?
 + Create an Oracle database in RDS with Multi-AZ deployments.
 + Convert the database schema using the AWS Schema Conversion Tool and AWS Database Migration Service. Migrate the Oracle database to a non-cluster Amazon Aurora with a single instance.
 
+<details close>
+<summary>Answer</summary>
+c
+</details>
+
+---
+
+A company is using a combination of API Gateway and Lambda for the web services of the online web portal that is being accessed by hundreds of thousands of clients each day. They will be announcing a new revolutionary product and it is expected that the web portal will receive a massive number of visitors all around the globe.
+
+How can you protect the backend systems and applications from traffic spikes?
+
++ Use throttling limits in API Gateway
++ API Gateway will automatically scale and handle massive traffic spikes so you do not have to do anything.
++ Manually upgrade the EC2 instances being used by API Gateway
++ Deploy Multi-AZ in API Gateway with Read Replica
+
+<details close>
+<summary>Answer</summary>
+a
+</details>
+
+---
+
+An online shopping platform is hosted on an Auto Scaling group of Spot EC2 instances and uses Amazon Aurora PostgreSQL as its database. There is a requirement to optimize your database workloads in your cluster where you have to direct the write operations of the production traffic to your high-capacity instances and point the reporting queries sent by your internal staff to the low-capacity instances.
+
+Which is the most suitable configuration for your application as well as your Aurora database cluster to achieve this requirement?
+
++ Configure your application to use the reader endpoint for both production traffic and reporting queries, which will enable your Aurora database to automatically perform load-balancing among all the Aurora Replicas.
++ In your application, use the instance endpoint of your Aurora database to handle the incoming production traffic and use the cluster endpoint to handle reporting queries.
++ Create a custom endpoint in Aurora based on the specified criteria for the production traffic and another custom endpoint to handle the reporting queries.
++ Do nothing since by default, Aurora will automatically direct the production traffic to your high-capacity instances and the reporting queries to your low-capacity instances.
+
+<details close>
+<summary>Answer</summary>
+c
+</details>
+
+---
+
+A company has 3 DevOps engineers that are handling its software development and infrastructure management processes. One of the engineers accidentally deleted a file hosted in Amazon S3 which has caused disruption of service.
+
+What can the DevOps engineers do to prevent this from happening again?
+
++ Use S3 Infrequently Accessed storage to store the data.
++ Enable S3 Versioning and Multi-Factor Authentication Delete on the bucket.
++ Set up a signed URL for all users.
++ Create an IAM bucket policy that disables delete operation.
+
+<details close>
+<summary>Answer</summary>
+b
+</details>
+
+---
+
+There are a lot of outages in the Availability Zone of your RDS database instance to the point that you have lost access to the database. What could you do to prevent losing access to your database in case that this event happens again?
+
++ Make a snapshot of the database
++ Enabled Multi-AZ failover 
++ Increase the database instance size
++ Create a read replica
+
+<details close>
+<summary>Answer</summary>
+b
+</details>
+
+---
+
+A popular social media website uses a CloudFront web distribution to serve their static contents to their millions of users around the globe. They are receiving a number of complaints recently that their users take a lot of time to log into their website. There are also occasions when their users are getting HTTP 504 errors. You are instructed by your manager to significantly reduce the user's login time to further optimize the system.
+
+Which of the following options should you use together to set up a cost-effective solution that can improve your application's performance? (Select TWO.)
++ Customize the content that the CloudFront web distribution delivers to your users using Lambda@Edge, which allows your Lambda functions to execute the authentication process in AWS locations closer to the users.
++ Use multiple and geographically disperse VPCs to various AWS regions then create a transit VPC to connect all of your resources. In order to handle the requests faster, set up Lambda functions in each region using the AWS Serverless Application Model (SAM) service.
++ Configure your origin to add a `Cache-Control max-age`  directive to your objects, and specify the longest practical value for `max-age`  to increase the cache hit ratio of your CloudFront distribution.
++ Deploy your application to multiple AWS regions to accommodate your users around the world. Set up a Route 53 record with latency routing policy to route incoming traffic to the region that provides the best latency to the user.
++ Set up an origin failover by creating an origin group with two origins. Specify one as the primary origin and the other as the second origin which CloudFront automatically switches to when the primary origin returns specific HTTP status code failure responses.
+
+<details close>
+<summary>Answer</summary>
+a,e
+</details>
+
+---
+
+A company has a hybrid cloud architecture that connects their on-premises data center and cloud infrastructure in AWS. They require a durable storage backup for their corporate documents stored on-premises and a local cache that provides low latency access to their recently accessed data to reduce data egress charges. The documents must be stored to and retrieved from AWS via the Server Message Block (SMB) protocol. These files must immediately be accessible within minutes for six months and archived for another decade to meet the data compliance.
+
+Which of the following is the best and most cost-effective approach to implement in this scenario?
+
++ Launch a new file gateway that connects to your on-premises data center using AWS Storage Gateway. Upload the documents to the file gateway and set up a lifecycle policy to move the data into Glacier for data archival.
++ Launch a new tape gateway that connects to your on-premises data center using AWS Storage Gateway. Upload the documents to the tape gateway and set up a lifecycle policy to move the data into Glacier for archival.
++ Establish a Direct Connect connection to integrate your on-premises network to your VPC. Upload the documents on Amazon EBS Volumes and use a lifecycle policy to automatically move the EBS snapshots to an S3 bucket, and then later to Glacier for archival.
++ Use AWS Snowmobile to migrate all of the files from the on-premises network. Upload the documents to an S3 bucket and set up a lifecycle policy to move the data into Glacier for archival.
+
+<details close>
+<summary>Answer</summary>
+a
+</details>
+
+<details close>
+<summary>Note</summary>
+File Gateway: support SMB protocol.
+Volume Gateway: support iSCSI, on-prem, primary data, cloud : async backups
+Cached Gateway: on-prem, cached most freq accessed files, cloud: primary data
+</details>
+
+---
+
+A company conducted a surprise IT audit on all of the AWS resources being used in the production environment. During the audit activities, it was noted that you are using a combination of Standard and Convertible Reserved EC2 instances in your applications.
+
+Which of the following are the characteristics and benefits of using these two types of Reserved EC2 instances? (Select TWO.)
++ Unused Convertible Reserved Instances can later be sold at the Reserved Instance Marketplace.
++ It can enable you to reserve capacity for your Amazon EC2 instances in multiple Availability Zones and multiple AWS Regions for any duration.
++ Unused Standard Reserved Instances can later be sold at the Reserved Instance Marketplace.
++ It runs in a VPC on hardware that's dedicated to a single customer.
++ Convertible Reserved Instances allow you to exchange for another convertible reserved instance of a different instance family.
+
+<details close>
+<summary>Answer</summary>
+c,e
+</details>
+
+---
+
+A Docker application, which is running on an Amazon ECS cluster behind a load balancer, is heavily using DynamoDB. You are instructed to improve the database performance by distributing the workload evenly and using the provisioned throughput efficiently.   
+
+Which of the following would you consider to implement for your DynamoDB table?
++ Reduce the number of partition keys in the DynamoDB table.
++ Use partition keys with high-cardinality attributes, which have a large number of distinct values for each item.
++ Use partition keys with low-cardinality attributes, which have a few number of distinct values for each item.
++ Avoid using a composite primary key, which is composed of a partition key and a sort key.
+
+<details close>
+<summary>Answer</summary>
+b
+</details>
+
+---
+
+A company is designing a banking portal that uses Amazon ElastiCache for Redis as its distributed session management component. Since the other Cloud Engineers in your department have access to your ElastiCache cluster, you have to secure the session data in the portal by requiring them to enter a password before they are granted permission to execute Redis commands.
+
+As the Solutions Architect, which of the following should you do to meet the above requirement?
+
++ Set up an IAM Policy and MFA which requires the Cloud Engineers to enter their IAM credentials and token before they can access the ElastiCache cluster.
++ Set up a Redis replication group and enable the `AtRestEncryptionEnabled`  parameter.
++ Authenticate the users using Redis AUTH by creating a new Redis Cluster with both the `--transit-encryption-enabled` and `--auth-token` parameters enabled.
++ Enable the in-transit encryption for Redis replication groups.
+
+<details close>
+<summary>Answer</summary>
+c
+</details>
+
+---
+
+A Solutions Architect identified a series of DDoS attacks while monitoring the VPC. The Architect needs to fortify the current cloud infrastructure to protect the data of the clients.
+
+Which of the following is the most suitable solution to mitigate these kinds of attacks?
++ Use AWS Shield Advanced to detect and mitigate DDoS attacks.
++ Using the AWS Firewall Manager, set up a security layer that will prevent SYN floods, UDP reflection attacks, and other DDoS attacks.
++ Set up a web application firewall using AWS WAF to filter, monitor, and block HTTP traffic.
++ A combination of Security Groups and Network Access Control Lists to only allow authorized traffic to access your VPC.
+
+<details close>
+<summary>Answer</summary>
+a
+</details>
+
+---
+
+An AI-powered Forex trading application consumes thousands of data sets to train its machine learning model. The application’s workload requires a high-performance, parallel hot storage to process the training datasets concurrently. It also needs cost-effective cold storage to archive those datasets that yield low profit.
+
+Which of the following Amazon storage services should the developer use?
++ Use Amazon FSx For Lustre and Amazon EBS Provisioned IOPS SSD (io1) volumes for hot and cold storage respectively.
++ Use Amazon FSx For Lustre and Amazon S3 for hot and cold storage respectively.
++ Use Amazon Elastic File System and Amazon S3 for hot and cold storage respectively.
++ Use Amazon FSx For Windows File Server and Amazon S3 for hot and cold storage respectively.
+
+<details close>
+<summary>Answer</summary>
+b
+</details>
+
+
+<details close>
+<summary>Note</summary>
+Amazon FSx For Lustre is a high-performance file system for fast processing of workloads. Lustre is a popular open-source parallel file system which stores data across multiple network file servers to maximize performance and reduce bottlenecks.
+</details>
+
+---
+
+An application consists of multiple EC2 instances in private subnets in different availability zones. The application uses a single NAT Gateway for downloading software patches from the Internet to the instances. There is a requirement to protect the application from a single point of failure when the NAT Gateway encounters a failure or if its availability zone goes down.
+
+How should the Solutions Architect redesign the architecture to be more highly available and cost-effective
++ Create a NAT Gateway in each availability zone. Configure the route table in each private subnet to ensure that instances use the NAT Gateway in the same availability zone
++ Create a NAT Gateway in each availability zone. Configure the route table in each public subnet to ensure that instances use the NAT Gateway in the same availability zone.
++ Create two NAT Gateways in each availability zone. Configure the route table in each public subnet to ensure that instances use the NAT Gateway in the same availability zone.
++ Create three NAT Gateways in each availability zone. Configure the route table in each private subnet to ensure that instances use the NAT Gateway in the same availability zone.
+
+
+<details close>
+<summary>Answer</summary>
+a
+</details>
+
+---
+
+A company plans to launch an Amazon EC2 instance in a private subnet for its internal corporate web portal. For security purposes, the EC2 instance must send data to Amazon DynamoDB and Amazon S3 via private endpoints that don't pass through the public Internet.
+
+Which of the following can meet the above requirements?
++ Use VPC endpoints to route all access to S3 and DynamoDB via private endpoints.
++ Use AWS VPN CloudHub to route all access to S3 and DynamoDB via private endpoints.
++ Use AWS Transit Gateway to route all access to S3 and DynamoDB via private endpoints.
++ Use AWS Direct Connect to route all access to S3 and DynamoDB via private endpoints.
+
+<details close>
+<summary>Answer</summary>
+a
+</details>
+
+---
+An organization needs a persistent block storage volume that will be used for mission-critical workloads. The backup data will be stored in an object storage service and after 30 days, the data will be stored in a data archiving storage service.
+
+What should you do to meet the above requirement?
++ Attach an EBS volume in your EC2 instance. Use Amazon S3 to store your backup data and configure a lifecycle policy to transition your objects to Amazon S3 Glacier.
++ Attach an EBS volume in your EC2 instance. Use Amazon S3 to store your backup data and configure a lifecycle policy to transition your objects to Amazon S3 One Zone-IA.
++ Attach an instance store volume in your existing EC2 instance. Use Amazon S3 to store your backup data and configure a lifecycle policy to transition your objects to Amazon S3 Glacier.
++ Attach an instance store volume in your EC2 instance. Use Amazon S3 to store your backup data and configure a lifecycle policy to transition your objects to Amazon S3 One Zone-IA.
+
+<details close>
+<summary>Answer</summary>
+a
+</details>
+
+---
+
+A Solutions Architect designed a serverless architecture that allows AWS Lambda to access an Amazon DynamoDB table named `tutorialsdojo` in the `US East (N. Virginia)` region. The IAM policy attached to a Lambda function allows it to put and delete items in the table. The policy must be updated to only allow two operations in the `tutorialsdojo` table and prevent other DynamoDB tables from being modified.
+
+Which of the following IAM policies fulfill this requirement and follows the principle of granting the least privilege?
+```json
+{
+
+ "Version": "2012-10-17",
+
+ "Statement": [
+
+ {
+
+ "Sid": "TutorialsdojoTablePolicy",
+
+ "Effect": "Allow",
+
+ "Action": [
+
+ "dynamodb:PutItem",
+
+ "dynamodb:DeleteItem"
+
+ ],
+
+ "Resource": "arn:aws:dynamodb:us-east-1:120618981206:table/tutorialsdojo"
+
+ }
+
+ ]
+
+}
+```
+```json
+{
+
+ "Version": "2012-10-17",
+
+ "Statement": [
+
+ {
+
+ "Sid": "TutorialsdojoTablePolicy",
+
+ "Effect": "Allow",
+
+ "Action": [
+
+ "dynamodb:PutItem",
+
+ "dynamodb:DeleteItem"
+
+ ],
+
+ "Resource": "arn:aws:dynamodb:us-east-1:120618981206:table/*"
+
+ }
+
+ ]
+
+}
+
+```
+```json
+{
+"Version": "2012-10-17",
+"Statement": [
+{
+"Sid": "TutorialsdojoTablePolicy1",
+"Effect": "Allow",
+"Action": [
+"dynamodb:PutItem",
+"dynamodb:DeleteItem"
+],
+"Resource": "arn:aws:dynamodb:us-east-1:1206189812061898:table/tutorialsdojo"
+},
+{
+"Sid": "TutorialsdojoTablePolicy2",
+"Effect": "Allow",
+"Action": "dynamodb:*",
+"Resource": "arn:aws:dynamodb:us-east-1:1206189812061898:table/tutorialsdojo"
+}
+]
+}
+
+```
+```json
+{
+"Version": "2012-10-17",
+"Statement": [
+{
+"Sid": "TutorialsdojoTablePolicy1",
+"Effect": "Allow",
+"Action": [
+"dynamodb:PutItem",
+"dynamodb:DeleteItem"
+],
+"Resource": "arn:aws:dynamodb:us-east-1:1206189812061898:table/tutorialsdojo"
+},
+{
+"Sid": "TutorialsdojoTablePolicy2",
+"Effect": "Deny",
+"Action": "dynamodb:*",
+"Resource": "arn:aws:dynamodb:us-east-1:1206189812061898:table/*"
+}
+]
+}
+```
 
 
 
+<details close>
+<summary>Answer</summary>
+a
+</details>
 
+---
+
+A company requires all the data stored in the cloud to be encrypted at rest. To easily integrate this with other AWS services, they must have full control over the encryption of the created keys and also the ability to immediately remove the key material from AWS KMS. The solution should also be able to audit the key usage independently of AWS CloudTrail.
+
+Which of the following options will meet this requirement?
++ Use AWS Key Management Service to create AWS-owned CMKs and store the non-extractable key material in AWS CloudHSM.
++ Use AWS Key Management Service to create a CMK in a custom key store and store the non-extractable key material in Amazon S3.
++ Use AWS Key Management Service to create AWS-managed CMKs and store the non-extractable key material in AWS CloudHSM.
++ Use AWS Key Management Service to create a CMK in a custom key store and store the non-extractable key material in AWS CloudHSM.
+
+<details close>
+<summary>Answer</summary>
+d
+</details>
+
+---
+
+A company wishes to query data that resides in multiple AWS accounts from a central data lake. Each account has its own Amazon S3 bucket that stores data unique to its business function. Users from different accounts must be granted access to the data lake based on their roles.
+
+Which solution will minimize overhead and costs while meeting the required access patterns?
++ Use AWS Lake Formation to consolidate data from multiple accounts into a single account.
++ Use AWS Kinesis Firehose to consolidate data from multiple accounts into a single account.
++ Create a scheduled Lambda function for transferring data from multiple accounts to the S3 buckets of a central account
++ Use AWS Control Tower to centrally manage each account's S3 buckets.
+
+<details close>
+<summary>Answer</summary>
+a
+</details>
+
+<details close>
+<summary>Note</summary>
+
+AWS Lake Formation is a service that makes it easy to set up a secure data lake in days. A data lake is a centralized, curated, and secured repository that stores all your data, both in its original form and prepared for analysis. A data lake enables you to break down data silos and combine different types of analytics to gain insights and guide better business decisions.
+
+Amazon S3 forms the storage layer for Lake Formation. If you already use S3, you typically begin by registering existing S3 buckets that contain your data. Lake Formation creates new buckets for the data lake and import data into them. AWS always stores this data in your account, and only you have direct access to it.
+
+</details>
+
+---
+
+A company needs to deploy at least 2 EC2 instances to support the normal workloads of its application and automatically scale up to 6 EC2 instances to handle the peak load. The architecture must be highly available and fault-tolerant as it is processing mission-critical workloads.
+
+As the Solutions Architect of the company, what should you do to meet the above requirement?
+
++ Create an Auto Scaling group of EC2 instances and set the minimum capacity to 2 and the maximum capacity to 6. Deploy 4 instances in Availability Zone A.
++ Create an Auto Scaling group of EC2 instances and set the minimum capacity to 4 and the maximum capacity to 6. Deploy 2 instances in Availability Zone A and another 2 instances in Availability Zone B.
++ Create an Auto Scaling group of EC2 instances and set the minimum capacity to 2 and the maximum capacity to 6. Use 2 Availability Zones and deploy 1 instance for each AZ.
++ Create an Auto Scaling group of EC2 instances and set the minimum capacity to 2 and the maximum capacity to 4. Deploy 2 instances in Availability Zone A and 2 instances in Availability Zone B.
+
+<details close>
+<summary>Answer</summary>
+b
+</details>
+
+---
+
+A company has a web application that uses Internet Information Services (IIS) for Windows Server. A file share is used to store the application data on the network-attached storage of the company’s on-premises data center. To achieve a highly available system, they plan to migrate the application and file share to AWS.
+
+Which of the following can be used to fulfill this requirement?
++ Migrate the existing file share configuration to AWS Storage Gateway.
++ Migrate the existing file share configuration to Amazon FSx for Windows File Server.
++ Migrate the existing file share configuration to Amazon EFS.
++ Migrate the existing file share configuration to Amazon EBS.
+
+<details close>
+<summary>Answer</summary>
+b
+</details>
+
+Remember that Amazon EFS only supports Linux workloads.
+
+---
+
+A Solutions Architect needs to set up a relational database and come up with a disaster recovery plan to mitigate multi-region failure. The solution requires a Recovery Point Objective (RPO) of 1 second and a Recovery Time Objective (RTO) of less than 1 minute.
+
+Which of the following AWS services can fulfill this requirement?
+
++ Amazon Quantum Ledger Database (Amazon QLDB)
++ Amazon RDS for PostgreSQL with cross-region read replicas
++ Amazon Timestream
++ Amazon Aurora Global Database
+
+<details close>
+<summary>Answer</summary>
+d
+</details>
+
+---
+
+A company plans to host a web application in an Auto Scaling group of Amazon EC2 instances. The application will be used globally by users to upload and store several types of files. Based on user trends, files that are older than 2 years must be stored in a different storage class. The Solutions Architect of the company needs to create a cost-effective and scalable solution to store the old files yet still provide durability and high availability.
+
+Which of the following approach can be used to fulfill this requirement? (Select TWO.)
++ Use Amazon S3 and create a lifecycle policy that will move the objects to Amazon S3 Glacier after 2 years.
++ Use Amazon EFS and create a lifecycle policy that will move the objects to Amazon EFS-IA after 2 years.
++ Use Amazon S3 and create a lifecycle policy that will move the objects to Amazon S3 Standard-IA after 2 years.
++ Use Amazon EBS volumes to store the files. Configure the Amazon Data Lifecycle Manager (DLM) to schedule snapshots of the volumes after 2 years.
++ Use a RAID 0 storage configuration that stripes multiple Amazon EBS volumes together to store the files. Configure the Amazon Data Lifecycle Manager (DLM) to schedule snapshots of the volumes after 2 years.
+
+<details close>
+<summary>Answer</summary>
+a,c
+</details>
+
+---
+
+A company collects atmospheric data such as temperature, air pressure, and humidity from different countries. Each site location is equipped with various weather instruments and a high-speed Internet connection. The average collected data in each location is around 500 GB and will be analyzed by a weather forecasting application hosted in Northern Virginia. As the Solutions Architect, you need to aggregate all the data in the fastest way.
+
+Which of the following options can satisfy the given requirement?
+
++ Enable Transfer Acceleration in the destination bucket and upload the collected data using Multipart Upload.
++ Upload the data to the closest S3 bucket. Set up a cross-region replication and copy the objects to the destination bucket.
++ Use AWS Snowball Edge to transfer large amounts of data.
++ Set up a Site-to-Site VPN connection.
+
+<details close>
+<summary>Answer</summary>
+a
+</details>
+
+---
+
+A company plans to migrate its on-premises workload to AWS. The current architecture is composed of a Microsoft SharePoint server that uses a Windows shared file storage. The Solutions Architect needs to use a cloud storage solution that is highly available and can be integrated with Active Directory for access control and authentication.
+
+Which of the following options can satisfy the given requirement?
++ Launch an Amazon EC2 Windows Server to mount a new S3 bucket as a file volume.
++ Create a file system using Amazon EFS and join it to an Active Directory domain.
++ Create a Network File System (NFS) file share using AWS Storage Gateway.
++ Create a file system using Amazon FSx for Windows File Server and join it to an Active Directory domain in AWS.
+
+<details close>
+<summary>Answer</summary>
+d
+</details>
+
+---
+
+A company hosted an e-commerce website on an Auto Scaling group of EC2 instances behind an Application Load Balancer. The Solutions Architect noticed that the website is receiving a large number of illegitimate external requests from multiple systems with IP addresses that constantly change. To resolve the performance issues, the Solutions Architect must implement a solution that would block the illegitimate requests with minimal impact on legitimate traffic.
+
+Which of the following options fulfills this requirement?
++ Create a regular rule in AWS WAF and associate the web ACL to an Application Load Balancer.
++ Create a custom network ACL and associate it with the subnet of the Application Load Balancer to block the offending requests.
++ Create a rate-based rule in AWS WAF and associate the web ACL to an Application Load Balancer.
++ Create a custom rule in the security group of the Application Load Balancer to block the offending requests.
+
+<details close>
+<summary>Answer</summary>
+c
+</details>
+
+---
+
+A car dealership website hosted in Amazon EC2 stores car listings in an Amazon Aurora database managed by Amazon RDS. Once a vehicle has been sold, its data must be removed from the current listings and forwarded to a distributed processing system.
+
+Which of the following options can satisfy the given requirement?
++ Create an RDS event subscription and send the notifications to Amazon SQS. Configure the SQS queues to fan out the event notifications to multiple Amazon SNS topics. Process the data using Lambda functions.
++ Create an RDS event subscription and send the notifications to AWS Lambda. Configure the Lambda function to fan out the event notifications to multiple Amazon SQS queues to update the processing system.
++ Create an RDS event subscription and send the notifications to Amazon SNS. Configure the SNS topic to fan out the event notifications to multiple Amazon SQS queues. Process the data using Lambda functions.
++ Create a native function or a stored procedure that invokes a Lambda function. Configure the Lambda function to send event notifications to an Amazon SQS queue for the processing system to consume.
+
+<details close>
+<summary>Answer</summary>
+d
+</details>
+
+---
+
+A logistics company plans to automate its order management application. The company wants to use SFTP file transfer in uploading business-critical documents. Since the files are confidential, the files need to be highly available and must be encrypted at rest. The files must also be automatically deleted a month after they are created.
+
+Which of the following options should be implemented to meet the company requirements with the least operation overhead?
+
++ Create an Amazon S3 bucket with encryption enabled. Configure AWS Transfer for SFTP to securely upload files to the S3 bucket. Configure the retention policy on the SFTP server to delete files after a month.
++ Create an Amazon Elastic Filesystem (EFS) file system and enable encryption. Configure AWS Transfer for SFTP to securely upload files to the EFS file system. Apply an EFS lifecycle policy to delete files after 30 days.
++ Provision an Amazon EC2 instance and install the SFTP service. Mount an encrypted EFS file system on the EC2 instance to store the uploaded files. Add a cron job to delete the files older than a month.
++ Create an Amazon S3 bucket with encryption enabled. Launch an AWS Transfer for SFTP endpoint to securely upload files to the S3 bucket. Configure an S3 lifecycle rule to delete files after a month.
+
+<details close>
+<summary>Answer</summary>
+d
+</details>
+
+---
+
+A company uses an Application Load Balancer (ALB) for its public-facing multi-tier web applications. The security team has recently reported that there has been a surge of SQL injection attacks lately, which causes critical data discrepancy issues. The same issue is also encountered by its other web applications in other AWS accounts that are behind an ALB. An immediate solution is required to prevent the remote injection of unauthorized SQL queries and protect their applications hosted across multiple accounts.
+
+As a Solutions Architect, what solution would you recommend?
+
++ Use AWS Network Firewall to filter web vulnerabilities and brute force attacks using stateful rule groups across all Application Load Balancers on all AWS accounts. Refactor the web application to be less susceptible to SQL injection attacks based on the security assessment.
++ Use AWS WAF and set up a managed rule to block request patterns associated with the exploitation of SQL databases, like SQL injection attacks. Associate it with the Application Load Balancer. Integrate AWS WAF with AWS Firewall Manager to reuse the rules across all the AWS accounts.
++ Use Amazon Macie to scan for vulnerabilities and unintended network exposure. Refactor the web application to be less susceptible to SQL injection attacks based on the security assessment. Utilize the AWS Audit Manager to reuse the security assessment across all AWS accounts.
++ Use Amazon GuardDuty and set up a managed rule to block request patterns associated with the exploitation of SQL databases, like SQL injection attacks. Associate it with the Application Load Balancer and utilize the AWS Security Hub service to reuse the managed rules across all the AWS accounts
+
+<details close>
+<summary>Answer</summary>
+b
+</details>
+
+---
+
+A payment processing company plans to migrate its on-premises application to an Amazon EC2 instance. An IPv6 CIDR block is attached to the company’s Amazon VPC. Strict security policy mandates that the production VPC must only allow outbound communication over IPv6 between the instance and the internet but should prevent the internet from initiating an inbound IPv6 connection. The new architecture should also allow traffic flow inspection and traffic filtering.
+
+What should a solutions architect do to meet these requirements?
++ Launch the EC2 instance to a public subnet and attach an Internet Gateway to the VPC to allow outbound IPv6 communication to the internet. Use Traffic Mirroring to set up the required rules for traffic inspection and traffic filtering.
++ Launch the EC2 instance to a private subnet and attach AWS PrivateLink interface endpoint to the VPC to control outbound IPv6 communication to the internet. Use Amazon GuardDuty to set up the required rules for traffic inspection and traffic filtering.
++ Launch the EC2 instance to a private subnet and attach a NAT Gateway to the VPC to allow outbound IPv6 communication to the internet. Use AWS Firewall Manager to set up the required rules for traffic inspection and traffic filtering.
++ Launch the EC2 instance to a private subnet and attach an Egress-Only Internet Gateway to the VPC to allow outbound IPv6 communication to the internet. Use AWS Network Firewall to set up the required rules for traffic inspection and traffic filtering.
+
+<details close>
+<summary>Answer</summary>
+d
+</details>
+
+<details close>
+<summary>Note</summary>
+NAT is only for IPv4
+
+An egress-only internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows outbound communication over IPv6 from instances in your VPC to the internet and prevents it from initiating an IPv6 connection with your instances.
+</details>
+
+---
+
+An online learning company hosts its Microsoft .NET e-Learning application on a Windows Server in its on-premises data center. The application uses an Oracle Database Standard Edition as its backend database.
+
+The company wants a high-performing solution to migrate this workload to the AWS cloud to take advantage of the cloud’s high availability. The migration process should minimize development changes, and the environment should be easier to manage.
+
+Which of the following options should be implemented to meet the company requirements? (Select TWO.)
++ Migrate the Oracle database to Amazon RDS for Oracle in a Multi-AZ deployment by using AWS Database Migration Service (AWS DMS).
++ Refactor the application to .NET Core and run it as a serverless container service using Amazon Elastic Kubernetes Service (Amazon EKS) with AWS Fargate.
++ Use AWS Application Migration Service (AWS MGN) to migrate the on-premises Oracle database server to a new Amazon EC2 instance.
++ Rehost the on-premises .NET application to an AWS Elastic Beanstalk Multi-AZ environment which runs in multiple Availability Zones.
++ Provision and replatform the application to Amazon Elastic Container Service (Amazon ECS) with Amazon EC2 worker nodes. Use the Windows Server Amazon Machine Image (AMI) and deploy the .NET application using to the ECS cluster via the Amazon ECS Anywhere service.
+
+
+<details close>
+<summary>Answer</summary>
+a,d
+</details>
+
+<details close>
+<summary>Note</summary>
+Refactor the application to .NET Core and run it as a serverless container service using Amazon Elastic Kubernetes Service (Amazon EKS) with AWS Fargate is incorrect. This will take significant changes to the application as you will refactor, or do a code change to, the codebase in order for it to become a serverless container application. Remember that the scenario explicitly mentioned that the migration process should minimize development changes. A better solution is to rehost the on-premises .NET application to an AWS Elastic Beanstalk Multi-AZ environment, which doesn't require any code changes.
+</details>
 
 
 
