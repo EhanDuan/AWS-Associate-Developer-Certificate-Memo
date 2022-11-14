@@ -691,4 +691,407 @@ What are two benefits of using Read Replicas over Multi-AZ that the Architect sh
 a,c
 </details>
 
+---
+
+A company is using Amazon VPC that has a CIDR block of `10.31.0.0/27` that is connected to the on-premises data center. There was a requirement to create a Lambda function that will process massive amounts of cryptocurrency transactions every minute and then store the results to EFS. After setting up the serverless architecture and connecting the Lambda function to the VPC, the Solutions Architect noticed an increase in invocation errors with EC2 error types such as `EC2ThrottledException` at certain times of the day.
+
+Which of the following are the possible causes of this issue? (Select TWO.)
++ You only specified one subnet in your Lambda function configuration. That single subnet runs out of available IP addresses and there is no other subnet or Availability Zone which can handle the peak load.
++ Your VPC does not have a NAT gateway.
++ Your VPC does not have sufficient subnet ENIs or subnet IPs.
++ The associated security group of your function does not allow outbound connections.
++ The attached IAM execution role of your function does not have the necessary permissions to access the resources of your VPC.
+
+<details close>
+<summary>Answer</summary>
+a,c
+</details>
+
+---
+
+An aerospace engineering company recently adopted a hybrid cloud infrastructure with AWS. One of the Solutions Architect’s tasks is to launch a VPC with both public and private subnets for their EC2 instances as well as their database instances.
+
+Which of the following statements are true regarding Amazon VPC subnets? (Select TWO.)
++ EC2 instances in a private subnet can communicate with the Internet only if they have an Elastic IP.
++ Each subnet maps to a single Availability Zone.
++ The allowed block size in VPC is between a /16 netmask (65,536 IP addresses) and /27 netmask (32 IP addresses).
++ Every subnet that you create is automatically associated with the main route table for the VPC. 
++ Each subnet spans to 2 Availability Zones.
+
+<details close>
+<summary>Answer</summary>
+b,d
+</details>
+
+---
+
+A company that is rapidly growing in recent months has been in the process of setting up IAM users on its single AWS Account. A solutions architect has been tasked to handle the user management, which includes granting read-only access to users and denying permissions whenever an IAM user has no MFA setup. New users will be added frequently based on their respective departments.
+
+Which of the following action is the MOST secure way to grant permissions to the new users?
+
++ Launch an IAM Group for each department. Create an IAM Policy that enforces MFA authentication with the least privilege permission. Attach the IAM Policy to each IAM Group.
++ Create a Service Control Policy (SCP) that enforces MFA authentication for each department. Add a trust relationship to every SCP and attach it to each IAM User.
++ Create an IAM Role that enforces MFA authentication with the least privilege permission. Set up a corresponding IAM Group for each department. Attach the IAM Role to the IAM Groups.
++ Set up IAM roles for each IAM user and associate a permissions boundary that defines the maximum permissions.
+
+<details close>
+<summary>Answer</summary>
+a
+</details>
+
+---
+
+A major TV network has a web application running on eight Amazon T3 EC2 instances. The number of requests that the application processes are consistent and do not experience spikes. To ensure that eight instances are running at all times, the Solutions Architect should create an Auto Scaling group and distribute the load evenly between all instances.
+
+Which of the following options can satisfy the given requirements?
++ Deploy eight EC2 instances with Auto Scaling
++ Deploy four EC2 instances with Auto Scaling in one region and four in another region behind an Amazon Elastic Load Balancer.
++ Deploy four EC2 instances with Auto Scaling in one Availability Zone and four in another availability zone in the same region behind an Amazon Elastic Load Balancer.
++ Deploy two EC2 instances with Auto Scaling in four regions behind an Amazon Elastic Load Balancer.
+
+<details close>
+<summary>Answer</summary>
+c
+</details>
+
+---
+
+In Amazon EC2, you can manage your instances from the moment you launch them up to their termination. You can flexibly control your computing costs by changing the EC2 instance state. Which of the following statements is true regarding EC2 billing? (Select TWO.)
++ You will be billed when your On-Demand instance is in `pending`  state.
++ You will be billed when your Spot instance is preparing to stop with a `stopping` state.
++ You will be billed when your On-Demand instance is preparing to hibernate with a `stopping`  state.
++ You will be billed when your Reserved instance is in `terminated`  state.
++ You will not be billed for any instance usage while an instance is not in the `running` state.
+
+<details close>
+<summary>Answer</summary>
+c,d
+</details>
+
+---
+
+A large financial firm needs to set up a Linux bastion host to allow access to the Amazon EC2 instances running in their VPC. For security purposes, only the clients connecting from the corporate external public IP address 175.45.116.100 should have SSH access to the host.
+
+Which is the best option that can meet the customer's requirement?
+
++ Security Group Inbound Rule: Protocol – TCP. Port Range – 22, Source 175.45.116.100/32
++ Security Group Inbound Rule: Protocol – UDP, Port Range – 22, Source 175.45.116.100/32
++ Network ACL Inbound Rule: Protocol – UDP, Port Range – 22, Source 175.45.116.100/32
++ Network ACL Inbound Rule: Protocol – TCP, Port Range-22, Source 175.45.116.100/0
+
+<details close>
+<summary>Answer</summary>
+a
+</details>
+
+---
+
+A travel company has a suite of web applications hosted in an Auto Scaling group of On-Demand EC2 instances behind an Application Load Balancer that handles traffic from various web domains such as `i-love-manila.com`, `i-love-boracay.com`, `i-love-cebu.com` and many others. To improve security and lessen the overall cost, you are instructed to secure the system by allowing multiple domains to serve SSL traffic without the need to reauthenticate and reprovision your certificate everytime you add a new domain. This migration from HTTP to HTTPS will help improve their SEO and Google search ranking.
+
+Which of the following is the most cost-effective solution to meet the above requirement?
+
+
+<details close>
+<summary>Answer</summary>
+d
+</details>
+
+---
+
+A large financial firm in the country has an AWS environment that contains several Reserved EC2 instances hosting a web application that has been decommissioned last week. To save costs, you need to stop incurring charges for the Reserved instances as soon as possible.
+
+What cost-effective steps will you take in this circumstance? (Select TWO.)
++ Stop the Reserved instances as soon as possible.
++ Contact AWS to cancel your AWS subscription.
++ Go to the AWS Reserved Instance Marketplace and sell the Reserved instances.
++ Terminate the Reserved instances as soon as possible to avoid getting billed at the on-demand price when it expires.
++ Go to the Amazon.com online shopping website and sell the Reserved instances.
+
+<details close>
+<summary>Answer</summary>
+c,d
+</details>
+
+---
+
+A company has clients all across the globe that access product files stored in several S3 buckets, which are behind each of their own CloudFront web distributions. They currently want to deliver their content to a specific client, and they need to make sure that only that client can access the data. Currently, all of their clients can access their S3 buckets directly using an S3 URL or through their CloudFront distribution. The Solutions Architect must serve the private content via CloudFront only, to secure the distribution of files.
+
+Which combination of actions should the Architect implement to meet the above requirements? (Select TWO.)
++ Create a custom CloudFront function to check and ensure that only their clients can access the files.
++ Enable the Origin Shield feature of the Amazon CloudFront distribution to protect the files from unauthorized access.
++ Use S3 pre-signed URLs to ensure that only their client can access the files. Remove permission to use Amazon S3 URLs to read the files for anyone else.
++ Restrict access to files in the origin by creating an origin access identity (OAI) and give it permission to read the files in the bucket.
++ Require the users to access the private content by using special CloudFront signed URLs or signed cookies.
+
+<details close>
+<summary>Answer</summary>
+d,e
+</details>
+
+---
+
+A company is storing its financial reports and regulatory documents in an Amazon S3 bucket. To comply with the IT audit, they tasked their Solutions Architect to track all new objects added to the bucket as well as the removed ones. It should also track whether a versioned object is permanently deleted. The Architect must configure Amazon S3 to publish notifications for these events to a queue for post-processing and to an Amazon SNS topic that will notify the Operations team.
+
+Which of the following is the MOST suitable solution that the Architect should implement?
++ Create a new Amazon SNS topic and Amazon SQS queue. Add an S3 event notification configuration on the bucket to publish `s3:ObjectCreated:*` and `s3:ObjectRemoved:Delete`  event types to SQS and SNS. 
++ Create a new Amazon SNS topic and Amazon MQ. Add an S3 event notification configuration on the bucket to publish `s3:ObjectAdded:*` and `s3:ObjectRemoved:*` event types to SQS and SNS.
++ Create a new Amazon SNS topic and Amazon SQS queue. Add an S3 event notification configuration on the bucket to publish `s3:ObjectCreated:*` and `ObjectRemoved:DeleteMarkerCreated` event types to SQS and SNS.
++ Create a new Amazon SNS topic and Amazon MQ. Add an S3 event notification configuration on the bucket to publish `s3:ObjectCreated:*` and `ObjectRemoved:DeleteMarkerCreated` event types to SQS and SNS.
+
+<details close>
+<summary>Answer</summary>
+a
+</details>
+
+---
+
+An application needs to retrieve a subset of data from a large CSV file stored in an Amazon S3 bucket by using simple SQL expressions. The queries are made within Amazon S3 and must only return the needed data. 
+
+Which of the following actions should be taken?
++ Perform an S3 Select operation based on the bucket's name and object's key.
++ Perform an S3 Select operation based on the bucket's name and object's metadata.
++ Perform an S3 Select operation based on the bucket's name and object tags.
++ Perform an S3 Select operation based on the bucket’s name.
+
+<details close>
+<summary>Answer</summary>
+a
+</details>
+
+---
+
+A media company recently launched their newly created web application. Many users tried to visit the website, but they are receiving a 503 Service Unavailable Error. The system administrator tracked the EC2 instance status and saw the capacity is reaching its maximum limit and unable to process all the requests. To gain insights from the application's data, they need to launch a real-time analytics service.
+
+Which of the following allows you to read records in batches?
++ Create an Amazon S3 bucket to store the captured data and use Amazon Athena to analyze the data.
++ Create a Kinesis Data Firehose and use AWS Lambda to read records from the data stream.
++ Create an Amazon S3 bucket to store the captured data and use Amazon Redshift Spectrum to analyze the data.
++ Create a Kinesis Data Stream and use AWS Lambda to read records from the data stream.
+
+<details close>
+<summary>Answer</summary>
+d
+</details>
+
+---
+
+A company needs to use Amazon Aurora as the Amazon RDS database engine of their web application. The Solutions Architect has been instructed to implement a 90-day backup retention policy.
+
+Which of the following options can satisfy the given requirement?
++ Configure an automated backup and set the backup retention period to 90 days.
++ Create an AWS Backup plan to take daily snapshots with a retention period of 90 days.
++ Configure RDS to export the automated snapshot automatically to Amazon S3 and create a lifecycle policy to delete the object after 90 days.
++ Create a daily scheduled event using CloudWatch Events and AWS Lambda to directly download the RDS automated snapshot to an S3 bucket. Archive snapshots older than 90 days to Glacier.
+
+<details close>
+<summary>Answer</summary>
+b
+</details>
+
+<details close>
+<summary>Note</summary>
+AWS Backup is a centralized backup service that makes it easy and cost-effective for you to backup your application data across AWS services in the AWS Cloud, helping you meet your business and regulatory backup compliance requirements. AWS Backup makes protecting your AWS storage volumes, databases, and file systems simple by providing a central place where you can configure and audit the AWS resources you want to backup, automate backup scheduling, set retention policies, and monitor all recent backup and restore activity.
+
+Configure an automated backup and set the backup retention period to 90 days is incorrect because the maximum backup retention period for automated backup is only 35 days.
+
+Configure RDS to export the automated snapshot automatically to Amazon S3 and create a lifecycle policy to delete the object after 90 days is incorrect because you can't export an automated snapshot automatically to Amazon S3. You must export the snapshot manually.
+
+</details>
+
+---
+
+A company plans to use a durable storage service to store on-premises database backups to the AWS cloud. To move their backup data, they need to use a service that can store and retrieve objects through standard file storage protocols for quick recovery.
+
+Which of the following options will meet this requirement?
++ Use the AWS Storage Gateway volume gateway to store the backup data and directly access it using Amazon S3 API actions.
++ Use Amazon EBS volumes to store all the backup data and attach it to an Amazon EC2 instance.
++ Use AWS Snowball Edge to directly backup the data in Amazon S3 Glacier.
++ Use the AWS Storage Gateway file gateway to store all the backup data in Amazon S3.
+
+<details close>
+<summary>Answer</summary>
+d
+</details>
+
+<details close>
+<summary>Note</summary>
+Use the AWS Storage Gateway volume gateway to store the backup data and directly access it using Amazon S3 API actions is incorrect. Although this is a possible solution, you cannot directly access the volume gateway using Amazon S3 APIs. You should use File Gateway to access your data in Amazon S3.
+</details>
+
+---
+
+A company has established a dedicated network connection from its on-premises data center to AWS Cloud using AWS Direct Connect (DX). The core network services, such as the Domain Name System (DNS) service and Active Directory services, are all hosted on-premises. The company has new AWS accounts that will also require consistent and dedicated access to these network services.
+
+Which of the following can satisfy this requirement with the LEAST amount of operational overhead and in a cost-effective manner?
+
++ Set up another Direct Connect connection for each and every new AWS account that will be added.
++ Set up a new Direct Connect gateway and integrate it with the existing Direct Connect connection. Configure a VPC peering connection between AWS accounts and associate it with Direct Connect gateway.
++ Create a new AWS VPN CloudHub. Set up a Virtual Private Network (VPN) connection for additional AWS accounts.
++ Create a new Direct Connect gateway and integrate it with the existing Direct Connect connection. Set up a Transit Gateway between AWS accounts and associate it with the Direct Connect gateway.
+
+<details close>
+<summary>Answer</summary>
+d
+</details>
+
+---
+
+A company hosted a web application on a Linux Amazon EC2 instance in the public subnet that uses a default network ACL. The instance uses a default security group and has an attached Elastic IP address. The network ACL has been configured to block all traffic to the instance. The Solutions Architect must allow incoming traffic on port 443 to access the application from any source.
+
+Which combination of steps will accomplish this requirement? (Select TWO.)
+
++ In the Security Group, add a new rule to allow TCP connection on port 443 from source `0.0.0.0/0` 
+
++ In the Network ACL, update the rule to allow both inbound and outbound TCP connection on port 443 from source `0.0.0.0/0` and to destination `0.0.0.0/0`
++ In the Security Group, create a new rule to allow TCP connection on port 443 to destination `0.0.0.0/0`
++ In the Network ACL, update the rule to allow outbound TCP connection on port `32768 - 65535`  to destination `0.0.0.0/0`
++ In the Network ACL, update the rule to allow inbound TCP connection on port 443 from source `0.0.0.0/0` and outbound TCP connection on port `32768 - 65535` to destination  `0.0.0.0/0`
+
+<details close>
+<summary>Answer</summary>
+a,e
+</details>
+
+---
+
+A production MySQL database hosted on Amazon RDS is running out of disk storage. The management has consulted its solutions architect to increase the disk space without impacting the database performance.
+
+How can the solutions architect satisfy the requirement with the LEAST operational overhead?
+
++ Modify the DB instance settings and enable storage autoscaling.
++ Increase the allocated storage for the DB instance.
++ Change the `default_storage_engine` of the DB instance’s parameter group to `MyISAM`.
++ Modify the DB instance storage type to Provisioned IOPS.
+
+<details close>
+<summary>Answer</summary>
+a
+</details>
+
+<details close>
+<summary>Note</summary>
+
+The option that says: Increase the allocated storage for the DB instance is incorrect. Although this will solve the problem of low disk space, increasing the allocated storage might cause performance degradation during the change.
+
+
+</details>
+
+---
+
+A company is hosting an application on EC2 instances that regularly pushes and fetches data in Amazon S3. Due to a change in compliance, the instances need to be moved on a private subnet. Along with this change, the company wants to lower the data transfer costs by configuring its AWS resources.
+
+How can this be accomplished in the MOST cost-efficient manner?
+
++ Set up a NAT Gateway in the public subnet to connect to Amazon S3.
++ Create an Amazon S3 interface endpoint to enable a connection between the instances and Amazon S3.
++ Create an Amazon S3 gateway endpoint to enable a connection between the instances and Amazon S3.
++ Set up an AWS Transit Gateway to access Amazon S3.
+
+<details close>
+<summary>Answer</summary>
+c
+</details>
+
+<summary>Note</summary>
+
+The option that says: Create an Amazon S3 interface endpoint to enable a connection between the instances and Amazon S3 is incorrect. This is also a possible solution but it's not the most cost-effective solution. You pay an hourly rate for every provisioned Interface endpoint.
+
+</details>
+
+---
+
+An online registration system hosted in an Amazon EKS cluster stores data to a` db.t4g.medium` Amazon Aurora DB cluster. The database performs well during regular hours but is unable to handle the traffic surge that occurs during flash sales. A solutions architect must move the database to Aurora Serverless while minimizing downtime and the impact on the operation of the application.
+
+Which change should be taken to meet the objective?
++ Use AWS Database Migration Service (AWS DMS) to migrate to a new Aurora Serverless database.
++ Change the Aurora Instance class to Serverless
++ Take a snapshot of the DB cluster. Use the snapshot to create a new Aurora DB cluster.
++ Add an Aurora Replica to the cluster and set its instance class to Serverless. Failover to the read replica and promote it to primary.
+
+<details close>
+<summary>Answer</summary>
+a
+</details>
+
+---
+
+A firm has a containerized application that runs on a self-managed Kubernetes cluster. The cluster writes data in an on-premises MongoDB database. A solutions architect is requested to move the service to AWS in order to minimize operational overhead. The firm prohibits any changes to the code.
+
+Which action meets these objectives?
+
++ Migrate the cluster to an Amazon Elastic Kubernetes Service (EKS) cluster and the database to an Amazon DocumentDB (with MongoDB compatibility) database.
++ Migrate the cluster to an Amazon Elastic Container Service (ECS) cluster using Amazon ECS Anywhere and the database to an Amazon Aurora Serverless database.
++ Migrate the cluster to an Amazon Elastic Kubernetes Service (EKS) cluster using Amazon EKS Anywhere and the database to an Amazon DynamoDB table.
++ Migrate the cluster to an Amazon Elastic Container Service (ECS) cluster with the images stored in the Amazon Elastic Container Registry (Amazon ECR). Move the database to an Amazon Neptune database
+
+<details close>
+<summary>Answer</summary>
+a
+</details>
+
+---
+
+A company requires that all AWS resources be tagged with a standard naming convention for better access control. The company’s solutions architect must implement a solution that checks for untagged AWS resources.
+
+Which solution requires the least amount of effort to implement?
++ Use an AWS Config rule to detect non-compliant tags.
++ Use tag policies in AWS Organizations to standardize the naming of tags. Store all the tags in an Amazon S3 bucket with the S3 Object Lock feature enabled.
++ Create a Lambda function that runs compliance checks on tagged resources. Schedule the function using Amazon EventBridge.
++ Use service control policies (SCP) to detect resources that are not tagged properly.
+
+<details close>
+<summary>Answer</summary>
+a
+</details>
+
+---
+
+A company intends to give each of its developers a personal AWS account through AWS Organizations. To enforce regulatory policies, preconfigured AWS Config rules will be set in the new accounts. A solutions architect must see to it that developers are unable to remove or modify any rules in AWS Config.
+
+Which solution meets the objective with the least operational overhead?
++ Add the developers' AWS account to an organization unit (OU). Attach a service control policy (SCP) to the OU that restricts access to AWS Config.
++ Use an IAM Role in the new accounts with an attached IAM trust relationship to disable the access of the root user to AWS Config.
++ Configure an AWS Config rule in the root account to detect if changes to the new account’s Config rules are made.
++ Set up an AWS Control Tower in the root account to detect if there were any changes to the new account’s AWS Config rules. Attach an IAM trust relationship to the IAM User of each developer which prevents any changes in AWS Config.
+
+<details close>
+<summary>Answer</summary>
+a
+</details>
+
+<details close>
+<summary>Note</summary>
+Keep in mind that the effects of IAM Policies do not apply to account root users. 
+</details>
+
+---
+
+A solutions architect is in charge of preparing the infrastructure for a serverless application. The application is built from a Docker image pulled from an Amazon Elastic Container Registry (ECR) repository. It is compulsory that the application has access to 5 GB of ephemeral storage.
+
+Which action satisfies the requirements?
++ Deploy the application to an Amazon ECS cluster that uses Fargate tasks.
++ Deploy the application in a Lambda function with Container image support. Set the function’s storage to 5 GB.
++ Deploy the application in a Lambda function with Container image support. Attach an Amazon Elastic File System (EFS) volume to the function.
++ Deploy the application Amazon ECS cluster with EC2 worker nodes and attach a 5 GB Amazon EBS volume.
+
+<details close>
+<summary>Answer</summary>
+a
+</details>
+
+---
+
+A company runs a multi-tier web application in the AWS Cloud. The application tier is hosted on Amazon EC2 instances and the backend database is hosted on an Amazon Aurora for MySQL DB cluster. For security compliance, all of the application variables such as DB hostnames, environment settings, product keys, and database passwords must be stored securely with encryption.
+
+Which of the following options is the most cost-effective solution to meet the requirements?
++ Store the values by creating SecureString type parameters in AWS Systems Manager Parameter Store. Use AWS Key Management Service (AWS KMS) for the encryption. Update the application to retrieve the parameter values.
++ Store the values by creating secrets in AWS Secrets Manager. Use AWS Key Management Service (AWS KMS) for the encryption. Update the application to retrieve the value of the secrets.
++ Store the values in a file saved in an Amazon S3 bucket. Enable encryption on the Amazon S3 bucket. Configure the application to download the file contents when it starts.
++ Store the values as key-value pairs in AWS Systems Manager OpsCenter. By default, the key-value pairs will be encrypted at rest. Configure the application to retrieve the variables when it starts.
+
+<details close>
+<summary>Answer</summary>
+a
+</details>
+
 
