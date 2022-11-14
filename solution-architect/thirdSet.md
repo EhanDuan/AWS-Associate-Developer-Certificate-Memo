@@ -1,4 +1,4 @@
-# Solution Architect Exam#2 Practice Set
+# Solution Architect Exam#3 Practice Set
 
 A Solutions Architect needs to deploy a mobile application that collects votes for a singing competition. Millions of users from around the world will submit votes using their mobile phones. These votes must be collected and stored in a highly scalable and highly available database which will be queried for real-time ranking. The database is expected to undergo frequent schema changes throughout the voting period.
 
